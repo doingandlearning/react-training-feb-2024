@@ -1,8 +1,10 @@
 # React Training
 
-Kevin Cunningham (https://kevincunningham.co.uk)
-Miro Board - 
-Feedback -
+## Monday 5th February - Wednesday 7th 2024
+
+- Kevin Cunningham (https://kevincunningham.co.uk)
+- Miro Board - https://miro.com/app/board/uXjVNzZVwAo=/?share_link_id=117688846982
+- Feedback -
 
 # Pre-course
 
