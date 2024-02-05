@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+	<div id="root">
+		<p>To get the most from this site please enable JS.</p>
+		<p>To get the most from this site please enable JS.</p>
+	</div>
+
+	<script type="text/babel">
+		const games = ["Assassin's Creed: Valhalla", "Fortnite", "Minecraft", "Starfield"]
+		const cities = ["Belfast", "Brighton", "Chicago", "Phoenix", "Dublin"]
+
+		// class App extends React.Component {} 
+		// React 16.8 
+
+		// Functional Components
+
+		// function List(props) => props.items
+		// function List({ items }) => items
+		function List({ items, orderedList = true }) {
+			const listType = orderedList ? "ol" : "ul"
+			return React.createElement(
+				listType,
+				null,
+				items
+					.map((item, index) => React.createElement(
+						"li",
+						{ key: item },
+						item
+					)))
+		}
+
+		// JSX
+		const detailsJsx = <div>
+			<List items="" />
+
+		</div>
+
+		console.log(detailsJsx)
+
+		const details = React.createElement(
+			"div",
+			null,
+			React.createElement(List, { items: games }),
+			React.createElement("hr"),
+			React.createElement(List, { items: cities }),
+			React.createElement("hr"),
+			React.createElement(List, { items: ["Andy", "Pav", "Halidu"], orderedList: false })
+		)
+		const root = ReactDOM.createRoot(document.getElementById("root"))
+		root.render(details)
+	</script>
+</body>
+
+</html>
