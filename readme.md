@@ -26,7 +26,7 @@ It would be good to create a folder in this project that you keep all of the cod
 
 # Outline
 
-1. Getting started with react
+1. Getting started with React
 2. Creating a React web application
 3. Components
 4. JSX
