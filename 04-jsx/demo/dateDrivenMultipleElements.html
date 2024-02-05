@@ -9,6 +9,12 @@
 	<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+	<style>
+		.great {
+			background-color: black;
+			color: red;
+		}
+	</style>
 </head>
 
 <body>
@@ -28,36 +34,37 @@
 
 		// function List(props) => props.items
 		// function List({ items }) => items
-		function List({ items, orderedList = true }) {
-			const listType = orderedList ? "ol" : "ul"
-			return React.createElement(
-				listType,
-				null,
-				items
-					.map((item, index) => React.createElement(
-						"li",
-						{ key: item },
-						item
-					)))
+
+		function List({ items, orderedList = true, children }) {
+
+			return <React.Fragment>
+				{children}
+				{orderedList ?
+					<ol style={{ backgroundColor: "green", color: "white" }}>
+						{items.map((item, index) => <Item key={index} label={item} />)}
+					</ol> :
+					<ul className="great">
+						{items.map((item, index) => <Item key={index} label={item} />)}
+					</ul>}
+			</React.Fragment>
 		}
 
-		// JSX
-		const detailsJsx = <div>
-			<List items="" />
+		function Item({ label }) {
+			return <li >{label}</li>
+		}
 
+		const details = <div>
+			<List items={games}>
+				<h1>Some explaining text</h1>
+			</List>
+			<hr />
+			<List items={cities} />
+			<hr />
+			<List items={["Andy", "Pav", "Halidu"]} orderedList={false} />
 		</div>
 
-		console.log(detailsJsx)
+		console.log(details)
 
-		const details = React.createElement(
-			"div",
-			null,
-			React.createElement(List, { items: games }),
-			React.createElement("hr"),
-			React.createElement(List, { items: cities }),
-			React.createElement("hr"),
-			React.createElement(List, { items: ["Andy", "Pav", "Halidu"], orderedList: false })
-		)
 		const root = ReactDOM.createRoot(document.getElementById("root"))
 		root.render(details)
 	</script>
