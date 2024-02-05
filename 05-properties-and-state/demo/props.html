@@ -68,8 +68,27 @@
 			name: PropTypes.string,
 			age: isValidAge,
 			isIrish: PropTypes.bool,
-			skills: PropTypes.array
+			skills: isStringArray
 		}
+
+		// interface Person {
+		// 	name: string,
+		// 	age: number,
+		// 	isIrish: boolean,
+		// 	skills: string[]
+		// }
+
+		function isStringArray(props, propName) {
+			if (!Array.isArray(props[propName])) {
+				throw new Error("Must be an array")
+			}
+			if (!props[propName].every(el => typeof el === "string")) {
+				throw new Error("All elements must be strings.")
+			}
+		}
+
+
+
 
 		function isValidAge(props, propName) {
 			if (typeof props[propName] !== 'number') {
@@ -96,7 +115,7 @@
 			<hr />
 			<Person
 				name="Kevin"
-				age={400}
+				age={40}
 				skills={["JavaScript", "TypeScript", "Python", "PHP"]}
 				isIrish={true}
 			/>
