@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script src="https://unpkg.com/prop-types@15.8.1/prop-types.js"></script>
+
+</head>
+
+<body>
+	<div id="root">
+		<p>To get the most from this site please enable JS.</p>
+		<p>To get the most from this site please enable JS.</p>
+	</div>
+
+	<script type="text/babel">
+		const games = ["Assassin's Creed: Valhalla", "Fortnite", "Minecraft", "Starfield"]
+		const cities = ["Belfast", "Brighton", "Chicago", "Phoenix", "Dublin"]
+
+		// class App extends React.Component {} 
+		// React 16.8 
+
+		// Functional Components
+
+		// function List(props) => props.items
+		// function List({ items }) => items
+
+		function List({ items, orderedList = true, children }) {
+			if (Array.isArray(items) === false) {
+				return <React.Fragment></React.Fragment>
+			}
+			return <React.Fragment>
+				{children}
+				{orderedList ?
+					<ol >
+						{items.map((item, index) => <Item key={index} label={item} />)}
+					</ol> :
+					<ul>
+						{items.map((item, index) => <Item key={index} label={item} />)}
+					</ul>}
+			</React.Fragment>
+		}
+
+		function Item({ label }) {
+			return <li >{label}</li>
+		}
+
+		const details = <div>
+			<List items={games}>
+				<h1>Some explaining text</h1>
+			</List>
+			<hr />
+			<List items={cities} />
+			<hr />
+			<List items={123} orderedList={false} />
+		</div>
+
+		console.log(details)
+
+		const root = ReactDOM.createRoot(document.getElementById("root"))
+		root.render(details)
+	</script>
+</body>
+
+</html>
