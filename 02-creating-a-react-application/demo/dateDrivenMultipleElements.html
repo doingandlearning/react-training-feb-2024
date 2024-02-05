@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+
+</head>
+
+<body>
+	<div id="root">
+		<p>To get the most from this site please enable JS.</p>
+		<p>To get the most from this site please enable JS.</p>
+	</div>
+
+	<script>
+		const games = ["Assassin's Creed: Valhalla", "Fortnite", "Minecraft", "Starfield"]
+		const cities = ["Belfast", "Brighton", "Chicago", "Phoenix", "Dublin"]
+
+		// [1,2,3].map((item, index, wholeArray) => )  => gives a new array
+		const gamesList = games
+			.map((game, index) => React.createElement(
+				"li",
+				{ key: index },
+				game
+			))
+
+		const citiesList = cities
+			.map((city, index) => React.createElement(
+				"li",
+				{ key: index },
+				city
+			))
+
+
+
+		const details = React.createElement(
+			"div",
+			null,
+			React.createElement("ul", null, gamesList),
+			React.createElement("hr"),
+			React.createElement("ul", null, citiesList)
+		)
+		const root = ReactDOM.createRoot(document.getElementById("root"))
+		root.render(details)
+	</script>
+</body>
+
+</html>
