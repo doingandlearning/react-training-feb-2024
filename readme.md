@@ -1,6 +1,6 @@
 # React Training
 
-## Monday 5th February - Wednesday 7th 2024
+## Monday 5th February - Thursday 8th 2024
 
 - Kevin Cunningham (https://kevincunningham.co.uk)
 - Miro Board - https://miro.com/app/board/uXjVNzZVwAo=/?share_link_id=117688846982
@@ -14,15 +14,15 @@ It would be good to create a folder in this project that you keep all of the cod
 
 # Timings
 
-| | |
-| --- | --- |
-| 9.30 - 11 | Session 1 |
-| 11 - 11.15 | Coffee |
+|               |           |
+| ------------- | --------- |
+| 9.30 - 11     | Session 1 |
+| 11 - 11.15    | Coffee    |
 | 11.15 - 12.45 | Session 2 |
-| 12.45 - 1.45 | Lunch |
-| 1.45 - 3.15 | Session 3 |
-| 3.15 - 3.30 | Coffee |
-| 3.30 - 4.30 | Session 4 | 
+| 12.45 - 1.45  | Lunch     |
+| 1.45 - 3.15   | Session 3 |
+| 3.15 - 3.30   | Coffee    |
+| 3.30 - 4.30   | Session 4 |
 
 # Outline
 
@@ -38,8 +38,7 @@ It would be good to create a folder in this project that you keep all of the cod
 10. React Redux
 11. React Sagas
 
-
-# Other things we can cover :) 
+# Other things we can cover :)
 
 - TypeScript essentials
 - Server-side rendering
