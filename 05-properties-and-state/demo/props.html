@@ -46,6 +46,41 @@
 			</React.Fragment>
 		}
 
+		List.propTypes = {
+			items: PropTypes.array,
+			orderedList: PropTypes.bool
+		}
+
+		function Person({ name, age, isIrish = false, skills = [] }) {
+			return <div>
+				<h1>{name}</h1>
+				<div>Age: {age}</div>
+				<div>Nationality: {isIrish ? "Irish" : "Not Irish"}</div>
+				{
+					skills.length === 0 ?
+						<div>No skills</div> :
+						<List items={skills} />
+				}
+			</div>
+		}
+
+		Person.propTypes = {
+			name: PropTypes.string,
+			age: isValidAge,
+			isIrish: PropTypes.bool,
+			skills: PropTypes.array
+		}
+
+		function isValidAge(props, propName) {
+			if (typeof props[propName] !== 'number') {
+				throw new Error("Must be a number")
+			}
+			if (props[propName] > 120) {
+				throw new Error("max value is 120")
+			}
+		}
+
+
 		function Item({ label }) {
 			return <li >{label}</li>
 		}
@@ -57,7 +92,14 @@
 			<hr />
 			<List items={cities} />
 			<hr />
-			<List items={123} orderedList={false} />
+			<List items={["Andy", "Halidu", "Pav"]} orderedList={false} />
+			<hr />
+			<Person
+				name="Kevin"
+				age={400}
+				skills={["JavaScript", "TypeScript", "Python", "PHP"]}
+				isIrish={true}
+			/>
 		</div>
 
 		console.log(details)

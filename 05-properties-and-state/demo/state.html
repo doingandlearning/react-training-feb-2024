@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script src="https://unpkg.com/prop-types@15.8.1/prop-types.js"></script>
+
+</head>
+
+<body>
+	<div id="root">
+		<p>To get the most from this site please enable JS.</p>
+		<p>To get the most from this site please enable JS.</p>
+	</div>
+
+	<script type="text/babel">
+
+		function List({ items, orderedList = true, children }) {
+			if (Array.isArray(items) === false) {
+				return <React.Fragment></React.Fragment>
+			}
+			return <React.Fragment>
+				{children}
+				{orderedList ?
+					<ol >
+						{items.map((item, index) => <Item key={index} label={item} />)}
+					</ol> :
+					<ul>
+						{items.map((item, index) => <Item key={index} label={item} />)}
+					</ul>}
+			</React.Fragment>
+		}
+
+		List.propTypes = {
+			items: PropTypes.array,
+			orderedList: PropTypes.bool
+		}
+		function Item({ label }) {
+			return <li >{label}</li>
+		}
+
+
+		function Person({ name, age, isIrish = false, skills = [] }) {
+			const [clickCount, setClickCount] = React.useState(0) // hook!!
+
+			function handleClick() {
+				setClickCount(clickCount => clickCount + 1)
+				setClickCount(clickCount => clickCount + 1)
+				setClickCount(clickCount => clickCount + 1)
+			}
+
+			return <div>
+				<h1>{name}</h1>
+				<div>Age: {age}</div>
+				<div>Nationality: {isIrish ? "Irish" : "Not Irish"}</div>
+				{
+					skills.length === 0 ?
+						<div>No skills</div> :
+						<List items={skills} />
+				}
+				Click count: {clickCount}
+				<div>
+					<button onClick={handleClick}>Click</button>
+				</div>
+			</div>
+		}
+
+		Person.propTypes = {
+			name: PropTypes.string,
+			age: isValidAge,
+			isIrish: PropTypes.bool,
+			skills: PropTypes.array
+		}
+
+		function isValidAge(props, propName) {
+			if (typeof props[propName] !== 'number') {
+				throw new Error("Must be a number")
+			}
+			if (props[propName] > 120) {
+				throw new Error("max value is 120")
+			}
+		}
+
+		// let clickCount = 0;
+
+
+
+
+
+		const details = <div>
+			<Person
+				name="Kevin"
+				age={40}
+				skills={["JavaScript", "TypeScript", "Python", "PHP"]}
+				isIrish={true}
+			/>
+
+		</div>
+
+
+		const root = ReactDOM.createRoot(document.getElementById("root"))
+		root.render(details)
+	</script>
+</body>
+
+</html>
