@@ -15,3 +15,18 @@ export interface Todo {
     address: string;
   };
 }
+
+// Dictionary type / Index
+interface Currency {
+  [country: string]: {
+    symbol: string;
+    name: string;
+  };
+}
+
+const currency: Currency = {
+  gbp: {
+    symbol: "£",
+    name: "Pound Sterling",
+  },
+};
