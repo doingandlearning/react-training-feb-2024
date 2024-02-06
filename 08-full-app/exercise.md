@@ -1,5 +1,7 @@
 # Lab: Building a Web App with API Integration
 
+- Up to coffee and then show and tell
+
 ## Overview
 
 In this lab, you'll build a web application that interacts with an external API to fetch and display data. This project will enhance your understanding of asynchronous programming, API integration, and React state management.
