@@ -1,0 +1,13 @@
+.todo {
+	border: 1px solid black;
+	margin: 4px;
+	border-radius: 8px;
+}
+
+.completed {
+	background-color: rgb(196, 226, 183);
+}
+
+.uncompleted {
+	
+}
