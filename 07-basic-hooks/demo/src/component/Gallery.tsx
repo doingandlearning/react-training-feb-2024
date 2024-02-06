@@ -1,5 +1,12 @@
-export default function Gallery({ baseAddress, urls }) {
-	const [selectedUrl, setSelectedUrl] = React.useState(undefined);
+import React from "react";
+import "./Gallery.css"
+interface Props {
+	baseAddress: string
+	urls: string[]
+}
+
+export default function Gallery({ baseAddress, urls }: Props) {
+	const [selectedUrl, setSelectedUrl] = React.useState<null | string>(null);
 	const [clickCount, setClickCount] = React.useState(0);
 
 	React.useEffect(() => {
@@ -38,7 +45,7 @@ export default function Gallery({ baseAddress, urls }) {
 
 	return (
 		<div className="gallery">
-			<button onClick={() => clearGallery()}>Clear gallery</button>
+			<button onClick={() => setSelectedUrl("")}>Clear gallery</button>
 			<div>
 				{urls.map((url, i) => (
 					<img
