@@ -28,12 +28,12 @@ Create a web application that fetches data from an external API and displays it 
 2. **Setup Your Project**
 
    - Create a new React application.
-   - Install necessary packages (e.g., `axios` for API requests).
 
 3. **Design Your Application Layout**
 
    - Plan the layout of your application.
    - Decide on the components you will need.
+   - Think about the props you need to pass
 
 4. **Fetching Data from the API**
 
