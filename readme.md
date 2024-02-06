@@ -31,17 +31,19 @@ It would be good to create a folder in this project that you keep all of the cod
 3. Components
 4. JSX
 5. Properties and state
-6. Component techniques
-7. Modular applications
+6. Modular applications
+7. Component techniques - basic hooks (useEffect, lifting state, ... )
+   -. TypeScript Intro
 8. Creating a complete React application
-9. SPAs
-10. React Redux
-11. React Sagas
+9. SPAs (react router)
+10. Forms
+11. React Redux -> useContext/useReducer
+12. React Sagas
 
 # Other things we can cover :)
 
-- TypeScript essentials
-- Server-side rendering
-- Testing React
-- React frameworks
+- TypeScript essentials +++
+- Server-side rendering +++
+- Testing React +++
+- React frameworks +++
 - Anything else relevant
