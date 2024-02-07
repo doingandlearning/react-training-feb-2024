@@ -30,3 +30,11 @@ th {
 .likePanel button {
   margin-left: 1em;
 }
+
+.active {
+  color: gray
+}
+
+a {
+  margin: 4px;
+}

@@ -1,14 +1,18 @@
 import Table from "./components/Table";
 import ItemsList from "./components/ItemsList";
 import LikePanel from "./components/LikePanel";
+import { NavLink, Routes, Route } from "react-router-dom"
 
 import "./App.css";
 import { useLibrary } from "./hooks/useLibrary";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import Book from "./book";
 import Film from "./film";
+import BookPage from "./components/BookPage";
+import FilmPage from "./components/FilmPage";
+import HomePage from "./components/HomePage";
 
-function App() {
+export default function App() {
   const { state, addBook, addFilm } = useLibrary();
   const { books, films } = state;
 
@@ -24,36 +28,18 @@ function App() {
       </button>
       <button onClick={addBook}>Add Book</button>
       <button onClick={addFilm}>Add Film</button>
-      {tabularFormat ? (
-        <TableView books={books} films={films} />
-      ) : (
-        <ListView books={books} films={films} />
-      )}
+      <nav>
+        <NavLink to="/books">Book page</NavLink>
+        <NavLink to="/films">Film page</NavLink>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/books" element={<BookPage tabularFormat={tabularFormat} />}></Route>
+        <Route path="/films" element={<FilmPage tabularFormat={tabularFormat} />}></Route>
+      </Routes>
       <LikePanel />
     </>
   );
 }
 
-function TableView({ books, films }: { books: Book[], films: Film[] }) {
-  return (
-    <div>
-      <h2>Books</h2>
-      <Table items={books} />
-      <h2>Films</h2>
-      <Table items={films} />
-    </div>
-  );
-}
-
-function ListView({ books, films }: { books: Book[], films: Film[] }) {
-  return (
-    <div>
-      <h2>Books</h2>
-      <ItemsList items={books} />
-      <h2>Films</h2>
-      <ItemsList items={films} />
-    </div>
-  );
-}
-
-export default App;
