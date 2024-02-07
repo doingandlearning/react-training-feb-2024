@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import Table from "./components/Table";
 import ItemsList from "./components/ItemsList";
 import LikePanel from "./components/LikePanel";
