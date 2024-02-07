@@ -1,47 +1,30 @@
-import React from "react"
+import React from "react";
 import { ILikeContext, LikeContext } from "../contexts/LikeContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export default function LikePanel() {
-	const { likes, setLikes, incrementLike, clearLikes } = React.useContext(LikeContext) as ILikeContext
-	const [start, setStart] = React.useState(true)
+	const { likes, setLikes, incrementLike, clearLikes } = React.useContext(LikeContext) as ILikeContext;
+	const [storedLikes, setStoredLikes] = useLocalStorage('likes', 0);
 
-	// Run this code after first render only.
+	// Sync likes with local storage
 	React.useEffect(() => {
-		const likesFromLocalStorage = Number(window.localStorage.likes);
-		if (!isNaN(likesFromLocalStorage)) {
-			console.log(
-				`Read likes=${likesFromLocalStorage} from local storage`
-			);
-			setLikes(likesFromLocalStorage);
+		if (storedLikes !== likes) {
+			setLikes(storedLikes);
 		}
 	}, []);
 
+	// Update local storage when likes change
 	React.useEffect(() => {
-		if (start) {
-			setStart(false)
-		} else {
-			window.localStorage.likes = likes;
-			console.log(`Written likes=${likes} to local storage`);
-		}
-	}, [likes]);
-
-	function onLike() {
-		incrementLike()
-	}
-
-	function onResetLikes() {
-		clearLikes()
-	}
+		setStoredLikes(likes);
+	}, [likes, setStoredLikes]);
 
 	return (
 		<div className="likePanel">
 			<h2>Like My Library</h2>
-			<span>
-				Likes: <b>{likes}</b>
-			</span>
+			<span>Likes: <b>{likes}</b></span>
 			&nbsp;
-			<button onClick={() => onLike()}>Like</button>
-			<button onClick={() => onResetLikes()}>Reset like count</button>
+			<button onClick={incrementLike}>Like</button>
+			<button onClick={clearLikes}>Reset like count</button>
 		</div>
 	);
 }
