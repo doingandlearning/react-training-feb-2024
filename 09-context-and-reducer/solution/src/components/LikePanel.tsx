@@ -11,6 +11,7 @@ export default function LikePanel() {
 		if (storedLikes !== likes) {
 			setLikes(storedLikes);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Update local storage when likes change
