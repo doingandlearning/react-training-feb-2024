@@ -2,23 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProduct } from './redux/actions'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const products = useSelector(s => s.products)
+  const dispatch = useDispatch()
 
+  function handleClick() {
+
+    dispatch(addProduct("Cool thing", 120))
+  }
+  //   useSelector(store => store.products)
   return (
     <>
-      <ul>
-        <li>useState</li>
-        <li>useContext</li>
-        <li>useReducer:
-          <ul>
-            <li>Initial Value</li>
-            <li>Reducer</li>
-            <li>Combined with useContext</li>
-          </ul>        </li>
-        <li>Redux</li>
-      </ul>
+      <button onClick={handleClick}>Add</button>
+      {JSON.stringify(products)}
     </>
   )
 }
