@@ -1,14 +1,14 @@
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
-import { ILibraryContext, LibraryContext } from "../contexts/LibraryContext";
-import React from "react";
+import Film from "../film";
+import Book from "../book";
 
-interface Props<T extends { toString(): string }> {
-	items: T[]
+interface Props {
+	items: (Book | Film)[]
 }
 
-export default function Table<T extends { toString(): string }>({ items = [] }: Props<T>) {
-
+export default function Table({ items = [] }: Props) {
+	console.log(items)
 	if (items.length == 0) {
 		return <div>[no items]</div>;
 	} else {

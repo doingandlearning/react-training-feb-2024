@@ -1,14 +1,16 @@
 import React from "react"
 import { ILibraryContext, LibraryContext } from "../contexts/LibraryContext";
+import Book from "../book";
+import Film from "../film";
 
-interface Props<T extends { toString(): string }> {
-	items: T[],
+interface Props {
+	items: (Book | Film)[],
 	ordered?: boolean
 }
 
-export default function ItemsList<T extends { toString(): string }>({ items, ordered = false }: Props<T>) {
+export default function ItemsList({ items, ordered = false }: Props) {
 	const { dispatch } = React.useContext(LibraryContext) as ILibraryContext;
-	const handleRemove = (item: T) => {
+	const handleRemove = (item: Book | Film) => {
 		if ('title' in item) {
 			dispatch({ type: "REMOVE_BOOK", payload: { title: item.title } });
 		} else if ('name' in item) {

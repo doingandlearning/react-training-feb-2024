@@ -9,7 +9,6 @@ import Book from "./book";
 import Film from "./film";
 import "./App.css";
 import { ILibraryContext, LibraryContext } from "./contexts/LibraryContext";
-import { ILikeContext, LikeContext } from "./contexts/LikeContext";
 
 
 function App() {
@@ -37,10 +36,10 @@ function App() {
 
   React.useEffect(() => {
     if (tabularFormat === null) {
-      let storedValue = window.localStorage.tabularFormatPreference;
+      const storedValue = window.localStorage.tabularFormatPreference;
 
       // Convert the retrieved value to a boolean
-      let tabularFormatPreference = storedValue === "true";
+      const tabularFormatPreference = storedValue === "true";
 
       console.log(
         `Read tabularFormatPreference=${tabularFormatPreference} from local storage`

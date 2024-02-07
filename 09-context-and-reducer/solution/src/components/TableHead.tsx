@@ -5,7 +5,7 @@ interface Props<T extends object> { sampleObject: T }
 export default function TableHead<T extends object>({ sampleObject }: Props<T>) {
 	return (
 		<thead>
-			<TableRow data={Object.keys(sampleObject)} head={true} />
+			<TableRow data={[...Object.keys(sampleObject), "Actions"]} head={true} />
 		</thead>
 	);
 }
