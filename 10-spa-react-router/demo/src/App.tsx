@@ -14,6 +14,7 @@ function App() {
         {/* <a href="/">Home</a> */}
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
+        <NavLink to="/products">Products</NavLink>
       </nav>
 
       <Routes>
