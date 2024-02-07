@@ -1,7 +1,6 @@
-import React from "react";
-import { ILibraryContext, LibraryContext } from "../contexts/LibraryContext";
 import Book from "../book";
 import Film from "../film";
+import { useLibrary } from "../hooks/useLibrary";
 
 interface Props {
 	data: (Book | Film)[]
@@ -10,9 +9,7 @@ interface Props {
 }
 
 export default function TableRow<T extends { toString(): string }>({ data, head = false, item }: Props<T>) {
-	const { dispatch } = React.useContext(LibraryContext) as ILibraryContext;
-
-
+	const { handleRemove } = useLibrary()
 
 	const CellTag = head ? "th" : "td";
 	return (
