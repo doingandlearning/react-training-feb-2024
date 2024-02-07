@@ -9,7 +9,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import Book from "./book";
 import Film from "./film";
 import BookPage from "./components/BookPage";
-import FilmPage from "./components/FilmPage.1";
+import FilmPage from "./components/FilmPage";
 import HomePage from "./components/HomePage";
 
 export default function App() {

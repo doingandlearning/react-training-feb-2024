@@ -7,7 +7,6 @@ import { LikeProvider } from './contexts/LikeContext.tsx'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <LikeProvider>
-
       <LibraryProvider>
         <App />
       </LibraryProvider>
