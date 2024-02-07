@@ -1,5 +1,6 @@
 import React from "react";
 import { ILibraryContext, LibraryContext } from "../contexts/LibraryContext";
+import { faker } from "@faker-js/faker";
 import Book from "../book";
 import Film from "../film";
 
@@ -12,17 +13,21 @@ export function useLibrary() {
 
   const { state, dispatch } = context as ILibraryContext;
 
-  const addBook = (book: Book) => {
+  const addBook = () => {
     dispatch({
       type: "ADD_BOOK",
-      payload: book,
+      payload: new Book(faker.commerce.productName(), faker.person.fullName()),
     });
   };
 
-  const addFilm = (film: Film) => {
+  const addFilm = () => {
     dispatch({
       type: "ADD_FILM",
-      payload: film,
+      payload: new Film(
+        faker.commerce.productName(),
+        faker.music.genre(),
+        faker.commerce.productDescription()
+      ),
     });
   };
 

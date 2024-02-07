@@ -1,6 +1,7 @@
 import Table from "./components/Table";
 import ItemsList from "./components/ItemsList";
 import LikePanel from "./components/LikePanel";
+import { faker } from "@faker-js/faker"
 import { NavLink, Routes, Route } from "react-router-dom"
 
 import "./App.css";
@@ -14,7 +15,6 @@ import HomePage from "./components/HomePage";
 
 export default function App() {
   const { state, addBook, addFilm } = useLibrary();
-  const { books, films } = state;
 
   const [tabularFormat, setTabularFormat] = useLocalStorage('tabularFormatPreference', null);
 
@@ -26,8 +26,8 @@ export default function App() {
       <button onClick={toggleView}>
         {tabularFormat ? "Show as List" : "Show as Table"}
       </button>
-      <button onClick={addBook}>Add Book</button>
-      <button onClick={addFilm}>Add Film</button>
+      <button onClick={() => addBook(new Book(faker.commerce.productName(), faker.person.fullName()))}>Add Book</button>
+      <button onClick={() => addFilm(new Film(faker.music.songName(), faker.music.genre(), faker.commerce.productDescription()))}>Add Film</button>
       <nav>
         <NavLink to="/books">Book page</NavLink>
         <NavLink to="/films">Film page</NavLink>
