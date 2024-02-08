@@ -1,5 +1,5 @@
 - Routing and links [x]
-- API routes
+- Data fetching [x]
+- API routes [x]
 - Optimisations - Image, Font
-- Data fetching
 - CSS, Error handling

@@ -13,10 +13,10 @@ export default function About() {
 
 		{
 			people.map((person, index) =>
-				<p>
+				<p key={person}>
 					<Link
 						href={`/about/${person}`}
-						key={person}
+
 						className="text-orange-700"
 					>
 						{person}
