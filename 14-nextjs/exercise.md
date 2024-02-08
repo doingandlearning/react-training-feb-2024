@@ -20,7 +20,7 @@ In this lab, you'll build a fundamental Next.js application. Next.js is a popula
 
 ### Exercise 2: Creating Basic Pages
 
-- Create at least three different pages in the `pages` directory. For example, `Home`, `About`, and `Contact`.
+- Create at least three different pages in the `app` directory. For example, `Home`, `About`, and `Contact`.
 - Each page should be a React component and should have basic content like a heading and a paragraph.
 
 ### Exercise 3: Implementing Navigation
