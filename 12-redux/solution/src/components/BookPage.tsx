@@ -1,12 +1,11 @@
-import { useLibrary } from "../hooks/useLibrary"
 import BookForm from "./BookForm"
 import ItemsList from "./ItemsList"
 import Table from "./Table"
+import { useSelector } from "react-redux"
 
 export default function BookPage({ tabularFormat }: { tabularFormat: boolean }) {
-	const { state } = useLibrary()
+	const { books } = useSelector(s => s.books)
 
-	const { books } = state
 	return <>
 		<BookForm />
 		{tabularFormat ? (
