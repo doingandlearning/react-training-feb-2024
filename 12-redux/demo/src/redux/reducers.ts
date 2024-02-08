@@ -1,8 +1,9 @@
-import { Action, ActionType, Product, SortedBy } from "./types";
+import { UnknownAction } from "redux";
+import { ActionType, Product, SortedBy } from "./types";
 
 export function productsReducer(
   state: Product[] = [],
-  action: Action
+  action: UnknownAction
 ): Product[] {
   switch (action.type) {
     case ActionType.ADD_PRODUCT:
@@ -26,7 +27,7 @@ export function productsReducer(
 // Ensure sortReducer is correctly typed as well
 export function sortReducer(
   state: SortedBy = SortedBy.DESCRIPTION,
-  action: Action
+  action: UnknownAction
 ): SortedBy {
   switch (action.type) {
     case ActionType.SORT_PRODUCTS:

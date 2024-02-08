@@ -5,11 +5,6 @@ export const enum ActionType {
   SORT_PRODUCTS = "SORT",
 }
 
-export interface Action {
-  type: ActionType;
-  payload: unknown;
-}
-
 export const enum SortedBy {
   DESCRIPTION,
   PRICE,
@@ -22,4 +17,9 @@ export interface Product {
   price: number;
   likes: number;
   mostRecentLike?: Date;
+}
+
+export interface RootState {
+  products: Product[];
+  sortBy: SortedBy;
 }

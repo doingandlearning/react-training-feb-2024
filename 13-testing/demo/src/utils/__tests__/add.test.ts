@@ -1,5 +1,5 @@
 import { expect, describe, test } from "vitest";
-import { add } from "./add";
+import { add } from "../add";
 
 describe("Add happy path", () => {
   test("adding positive numbers returns correct result", () => {
@@ -18,7 +18,7 @@ describe("Add happy path", () => {
   });
 });
 
-describe("Unhappy path", () => {
+describe("Add unhappy path", () => {
   test("non numbers will throw an error", () => {
     expect(() => add(true as any, {} as any)).toThrow();
     expect(() =>
