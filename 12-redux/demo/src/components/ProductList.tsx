@@ -10,7 +10,8 @@ import { Product, RootState } from '../redux/types'
 function ProductList() {
 
     // Call React Redux useSelector() function, to get access to "store" object in Redux Store.
-    const { products } = useSelector((store: RootState) => store)
+    const products = useSelector((store: RootState) => store.products)
+    // const { products } = useSelector((store: RootState) => store)
 
     // Call React Redux useDispatch() function, to get access to Redux Store dispatch() function.
     const dispatch = useDispatch()

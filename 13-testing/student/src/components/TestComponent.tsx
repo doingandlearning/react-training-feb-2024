@@ -22,7 +22,7 @@ function NoteEditor() {
 		<div>
 			<input
 				type="text"
-				placeholder="Title"
+				placeholder="Title" a
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
 			/>
